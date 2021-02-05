@@ -13105,7 +13105,7 @@ div#notebook {
 
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">stat</span>
 <span class="kn">from</span> <span class="nn">statsmodels.api</span> <span class="kn">import</span> <span class="n">add_constant</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Latex</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Latex</span><span class="p">,</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">HTML</span>
 
 <span class="c1">#type_exec = &#39;Latex&#39;</span>
 <span class="n">type_exec</span> <span class="o">=</span> <span class="s1">&#39;Html&#39;</span>
@@ -13113,6 +13113,23 @@ div#notebook {
 <span class="c1">## carrega dataframe inicial</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s1">&#39;Data//base_de_dados_ExerciocioI.dta&#39;</span><span class="p">)</span>
 <span class="c1">#df.head()</span>
+
+<span class="c1"># if type_exec == &#39;Html&#39;:</span>
+<span class="c1">#     CSS = &quot;&quot;&quot;</span>
+<span class="c1">#     .output {</span>
+<span class="c1">#         align-items: center;</span>
+<span class="c1">#     }</span>
+<span class="c1">#     div.output_area {</span>
+<span class="c1">#         width: 30%;</span>
+<span class="c1">#     }</span>
+<span class="c1">#     .output_png {</span>
+<span class="c1">#         display: table-cell;</span>
+<span class="c1">#         text-align: center;</span>
+<span class="c1">#         vertical-align: middle;</span>
+<span class="c1">#     }</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+
+<span class="c1">#     HTML(&#39;&lt;style&gt;{}&lt;/style&gt;&#39;.format(CSS))</span>
 </pre></div>
 
     </div>
@@ -13151,7 +13168,9 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Metodologia">Metodologia<a class="anchor-link" href="#Metodologia">&#182;</a></h1><p>A base de dados utilizada para este estudo contém uma amostra de 100.000 resultados de participantes do ENEM em 2017. A média de idade observada nesta amostra é de pouco mais de 22 anos, uma média relativamente alta, considerando que o exame é direcionado para alunos do último ano do ensino médio, além disso, 50% de nossa amostra apresenta idade superior a 20 anos, tendo como idade mínima e máxima, 14 e 77 anos respectivamente e desvio padrão de 7 anos, demonstrando que a idade dos participantes não estão muito dispersas da média.</p><p>As famílias dos participantes apresentam em média 4 membros, o que coloca a média de nossa amostra acima da média nacional que é 3 membros, segundo a POF. Quanto às notas, a menor nota de nossa amostra foi de 154.91 pontos e a maior foi de 818.14, sendo que a média foi de 520 pontos. Mais de 50% dos participantes de nossa base de dados apresentaram uma nota inferior ao média e 75% apresentaram nota inferior a 600 pontos. </p>
+<h1 id="Metodologia">Metodologia<a class="anchor-link" href="#Metodologia">&#182;</a></h1><p>A base de dados utilizada para este estudo contém uma amostra de 100.000 resultados de participantes do ENEM em 2017. A média de idade observada nesta amostra é de pouco mais de 22 anos, uma média relativamente alta, considerando que o exame é direcionado para alunos do último ano do ensino médio, além disso, 50% de nossa amostra apresenta idade superior a 20 anos, tendo como idade mínima e máxima, 14 e 77 anos respectivamente e desvio padrão de 7 anos, demonstrando que a idade dos participantes não estão muito dispersas da média.</p><p><p>As famílias dos participantes apresentam em média 4 membros, o que coloca a média de nossa amostra acima da média nacional que é 3 membros, segundo a POF. Quanto às notas, a menor nota de nossa amostra foi de 154.91 pontos e a maior foi de 818.14, sendo que a média foi de 520 pontos. Mais de 50% dos participantes de nossa base de dados apresentaram uma nota inferior ao média e 75% apresentaram nota inferior a 600 pontos. </p>
+&lt;/br&gt;</p>
+
 </div>
 </div>
 </div>
@@ -13160,18 +13179,32 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># if type_exec == &#39;Latex&#39;:</span>
+<span class="c1">#     display(Latex(&#39;$$\\begin{center}.$$&#39;))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#pd.set_option(&#39;display.notebook_repr_html&#39;, True)</span>
 
 <span class="c1">#def _repr_latex_(self):</span>
 <span class="c1">#    return &quot;\centering{%s}&quot; % self.to_latex()</span>
 
-
  <span class="c1">#pd.DataFrame._repr_latex_ = _repr_latex_  </span>
 <span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
-    <span class="n">res_print</span> <span class="o">=</span> <span class="n">Latex</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">variaveis</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">to_latex</span><span class="p">())</span>
+    <span class="c1">#display(Latex(&#39;$$\\begin{center}.$$&#39;))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">begin</span><span class="si">{center}</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">df</span><span class="p">[</span><span class="n">variaveis</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">to_latex</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">end</span><span class="si">{center}</span><span class="s1">&#39;</span><span class="p">))</span>
+    <span class="c1">#display(Latex(&#39;$$\\end{center}.$$&#39;))</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">res_print</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">variaveis</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-<span class="n">res_print</span> 
+    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">variaveis</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
 </pre></div>
 
     </div>
@@ -13184,11 +13217,11 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt"></div>
 
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="output_html rendered_html output_subarea ">
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -13272,6 +13305,20 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># if type_exec == &#39;Latex&#39;:</span>
+<span class="c1">#     display(Latex(&#39;$\\end{center}$&#39;))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13281,25 +13328,25 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## hack to print table in latex</span>
 
 <span class="n">df_ranking_pais</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;Nunca estudou.&#39;</span><span class="p">],</span>
-<span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;Não completou a 4ª série/5º ano do Ensino Fundamental.&#39;</span><span class="p">]</span> <span class="p">,</span>
-<span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;Completou a 4ª série/5º ano, mas não completou a 8ª série/9º ano do Ensino Fundamental.&#39;</span><span class="p">]</span> <span class="p">,</span>
-<span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;Completou a 8ª série/9º ano do Ensino Fundamental, mas não completou o Ensino Médio.&#39;</span><span class="p">]</span> <span class="p">,</span>
+<span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;Não completou a 4a série/5o ano do Ensino Fundamental.&#39;</span><span class="p">]</span> <span class="p">,</span>
+<span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;Completou a 4a série/5o ano, mas não completou a 8a série/9o ano do Ensino Fundamental.&#39;</span><span class="p">]</span> <span class="p">,</span>
+<span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;Completou a 8a série/9o ano do Ensino Fundamental, mas não completou o Ensino Médio.&#39;</span><span class="p">]</span> <span class="p">,</span>
 <span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;Completou o Ensino Médio, mas não completou a Faculdade.&#39;</span><span class="p">]</span> <span class="p">,</span>
 <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;Completou a Faculdade, mas não completou a Pós-graduação.&#39;</span><span class="p">]</span> <span class="p">,</span>
-<span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;Completou a Pós-graduação.&#39;</span><span class="p">]])</span>
+<span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;Completou a Pós-graduação.&#39;</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ranking&#39;</span><span class="p">,</span> <span class="s1">&#39;Descrição&#39;</span><span class="p">]</span> <span class="p">)</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;text-align&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">})</span>
 
 <span class="c1">#print(df_ranking_pais.to_latex(index=False))</span>
 <span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
-    <span class="n">res_print</span> <span class="o">=</span> <span class="n">Latex</span><span class="p">(</span><span class="n">df_ranking_pais</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="n">res_print</span> <span class="o">=</span> <span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">begin</span><span class="si">{center}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">df_ranking_pais</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n\\</span><span class="s1">end</span><span class="si">{center}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">res_print</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_ranking_pais</span><span class="p">)</span>
 <span class="n">res_print</span>
@@ -13315,7 +13362,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13338,8 +13385,8 @@ div#notebook {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>0</th>
-      <th>1</th>
+      <th>Ranking</th>
+      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
@@ -13351,17 +13398,17 @@ div#notebook {
     <tr>
       <th>1</th>
       <td>B</td>
-      <td>Não completou a 4ª série/5º ano do Ensino Fundamental.</td>
+      <td>Não completou a 4a série/5o ano do Ensino Fundamental.</td>
     </tr>
     <tr>
       <th>2</th>
       <td>C</td>
-      <td>Completou a 4ª série/5º ano, mas não completou a 8ª série/9º ano do Ensino Fundamental.</td>
+      <td>Completou a 4a série/5o ano, mas não completou a 8a série/9o ano do Ensino Fundamental.</td>
     </tr>
     <tr>
       <th>3</th>
       <td>D</td>
-      <td>Completou a 8ª série/9º ano do Ensino Fundamental, mas não completou o Ensino Médio.</td>
+      <td>Completou a 8a série/9o ano do Ensino Fundamental, mas não completou o Ensino Médio.</td>
     </tr>
     <tr>
       <th>4</th>
@@ -13405,7 +13452,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># funções utilizadas para criar os clusters por estado</span>
@@ -13612,7 +13659,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">group</span> <span class="o">=</span> <span class="n">group_fixed_range</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">group_column</span><span class="p">,</span> <span class="n">grade_ranking</span><span class="p">)</span>
@@ -13626,14 +13673,29 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># if type_exec == &#39;Latex&#39;:</span>
+<span class="c1">#     display(Latex(&#39;$\\begin{center}$&#39;))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Limites de cada ranking Brasil</span>
 <span class="c1"># Limites de cada ranking por estado</span>
+<span class="n">no_group</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Brasil&#39;</span>
 <span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
     <span class="c1">#Latex(print(&#39;\\begin{center}&#39;))</span>
-    <span class="n">res_print</span> <span class="o">=</span> <span class="n">Latex</span><span class="p">(</span><span class="n">no_group</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="n">res_print</span> <span class="o">=</span> <span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">begin</span><span class="si">{center}</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">no_group</span><span class="o">.</span><span class="n">to_latex</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">end</span><span class="si">{center}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="c1">#Latex(print(&#39;\end{center}&#39;))</span>
 <span class="k">else</span><span class="p">:</span> 
     <span class="n">res_print</span> <span class="o">=</span> <span class="n">no_group</span>
@@ -13650,7 +13712,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13682,6 +13744,17 @@ div#notebook {
       <th>F</th>
       <th>G</th>
     </tr>
+    <tr>
+      <th>Brasil</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
@@ -13708,7 +13781,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -13728,7 +13801,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -14070,6 +14143,20 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># if type_exec == &#39;Latex&#39;:</span>
+<span class="c1">#     display(Latex(&#39;$\\end{center}$&#39;))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14079,7 +14166,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_clusters</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>            <span class="c1"># cria cópia</span>
@@ -14097,7 +14184,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## plot rank - rank</span>
@@ -14145,7 +14232,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## trecho para criar dataframe responsável por exibir histogramas</span>
@@ -14195,7 +14282,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -14244,7 +14331,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># dados da rede publica não são representativos [apenas 133 de 100k]</span>
@@ -14294,7 +14381,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -14342,7 +14429,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -14392,7 +14479,7 @@ Nesta seção realizaremos a análise dos modelos estimados para medir o impacto
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># variáveis utilizadas para regressão</span>
@@ -14418,7 +14505,7 @@ Nesta seção realizaremos a análise dos modelos estimados para medir o impacto
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -14440,7 +14527,7 @@ Nesta seção realizaremos a análise dos modelos estimados para medir o impacto
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[22]:</div>
 
 
 
@@ -14460,7 +14547,7 @@ Nesta seção realizaremos a análise dos modelos estimados para medir o impacto
   <th>Date:</th>                       <td>Fri, 05 Feb 2021</td>            <th>  Prob (F-statistic):</th>   <td>  0.00</td>   
 </tr>
 <tr>
-  <th>Time:</th>                           <td>07:59:00</td>                <th>  Log-Likelihood:    </th> <td>-1.4234e+05</td>
+  <th>Time:</th>                           <td>11:51:33</td>                <th>  Log-Likelihood:    </th> <td>-1.4234e+05</td>
 </tr>
 <tr>
   <th>No. Observations:</th>                <td>100000</td>                 <th>  AIC:               </th>  <td>2.847e+05</td> 
@@ -14517,7 +14604,7 @@ Nesta seção realizaremos a análise dos modelos estimados para medir o impacto
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># filtro escolas privadas / publicas</span>
@@ -14568,7 +14655,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -14588,7 +14675,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -14608,7 +14695,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
   <th>Date:</th>                       <td>Fri, 05 Feb 2021</td>            <th>  Prob (F-statistic):</th> <td>7.33e-17</td>
 </tr>
 <tr>
-  <th>Time:</th>                           <td>07:59:00</td>                <th>  Log-Likelihood:    </th> <td> -3028.1</td>
+  <th>Time:</th>                           <td>11:51:33</td>                <th>  Log-Likelihood:    </th> <td> -3028.1</td>
 </tr>
 <tr>
   <th>No. Observations:</th>                <td>  2293</td>                 <th>  AIC:               </th> <td>   6060.</td>
@@ -14658,7 +14745,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -14678,7 +14765,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -14698,7 +14785,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
   <th>Date:</th>                       <td>Fri, 05 Feb 2021</td>            <th>  Prob (F-statistic):</th> <td>0.000124</td>
 </tr>
 <tr>
-  <th>Time:</th>                           <td>07:59:00</td>                <th>  Log-Likelihood:    </th> <td> -179.05</td>
+  <th>Time:</th>                           <td>11:51:33</td>                <th>  Log-Likelihood:    </th> <td> -179.05</td>
 </tr>
 <tr>
   <th>No. Observations:</th>                <td>   133</td>                 <th>  AIC:               </th> <td>   362.1</td>
@@ -14755,7 +14842,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -14775,7 +14862,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt output_prompt">Out[26]:</div>
 
 
 
@@ -14795,7 +14882,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
   <th>Date:</th>                       <td>Fri, 05 Feb 2021</td>            <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
 </tr>
 <tr>
-  <th>Time:</th>                           <td>07:59:00</td>                <th>  Log-Likelihood:    </th> <td> -81215.</td> 
+  <th>Time:</th>                           <td>11:51:33</td>                <th>  Log-Likelihood:    </th> <td> -81215.</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>                <td> 58100</td>                 <th>  AIC:               </th> <td>1.624e+05</td>
@@ -14845,7 +14932,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -14865,7 +14952,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -14885,7 +14972,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
   <th>Date:</th>                       <td>Fri, 05 Feb 2021</td>            <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
 </tr>
 <tr>
-  <th>Time:</th>                           <td>07:59:00</td>                <th>  Log-Likelihood:    </th> <td> -60936.</td> 
+  <th>Time:</th>                           <td>11:51:33</td>                <th>  Log-Likelihood:    </th> <td> -60936.</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>                <td> 41900</td>                 <th>  AIC:               </th> <td>1.219e+05</td>
@@ -14942,7 +15029,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -14962,7 +15049,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+    <div class="prompt output_prompt">Out[28]:</div>
 
 
 
@@ -14982,7 +15069,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
   <th>Date:</th>                       <td>Fri, 05 Feb 2021</td>            <th>  Prob (F-statistic):</th> <td>8.05e-212</td>
 </tr>
 <tr>
-  <th>Time:</th>                           <td>07:59:00</td>                <th>  Log-Likelihood:    </th> <td> -17830.</td> 
+  <th>Time:</th>                           <td>11:51:33</td>                <th>  Log-Likelihood:    </th> <td> -17830.</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>                <td> 12965</td>                 <th>  AIC:               </th> <td>3.566e+04</td>
@@ -15032,7 +15119,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -15052,7 +15139,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[26]:</div>
+    <div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -15072,7 +15159,7 @@ No caso das escolas privadas o número de observações total foi de 2293, onde 
   <th>Date:</th>                       <td>Fri, 05 Feb 2021</td>            <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
 </tr>
 <tr>
-  <th>Time:</th>                           <td>07:59:00</td>                <th>  Log-Likelihood:    </th> <td> -51559.</td> 
+  <th>Time:</th>                           <td>11:51:33</td>                <th>  Log-Likelihood:    </th> <td> -51559.</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>                <td> 35957</td>                 <th>  AIC:               </th> <td>1.031e+05</td>
@@ -15130,7 +15217,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># variáveis utilizadas para regressão</span>
@@ -15173,7 +15260,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[30]:</div>
 
 
 
@@ -15193,7 +15280,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
   <th>Date:</th>                       <td>Fri, 05 Feb 2021</td>            <th>  Prob (F-statistic):</th>   <td>  0.00</td>   
 </tr>
 <tr>
-  <th>Time:</th>                           <td>07:59:01</td>                <th>  Log-Likelihood:    </th> <td>-1.3667e+05</td>
+  <th>Time:</th>                           <td>11:51:34</td>                <th>  Log-Likelihood:    </th> <td>-1.3667e+05</td>
 </tr>
 <tr>
   <th>No. Observations:</th>                <td> 99998</td>                 <th>  AIC:               </th>  <td>2.733e+05</td> 
@@ -15249,7 +15336,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># variáveis utilizadas para regressão</span>
@@ -15282,7 +15369,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -15302,7 +15389,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[29]:</div>
+    <div class="prompt output_prompt">Out[32]:</div>
 
 
 
@@ -15322,7 +15409,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
   <th>Date:</th>                       <td>Fri, 05 Feb 2021</td>            <th>  Prob (F-statistic):</th>   <td>  0.00</td>   
 </tr>
 <tr>
-  <th>Time:</th>                           <td>07:59:01</td>                <th>  Log-Likelihood:    </th> <td>-1.3675e+05</td>
+  <th>Time:</th>                           <td>11:51:34</td>                <th>  Log-Likelihood:    </th> <td>-1.3675e+05</td>
 </tr>
 <tr>
   <th>No. Observations:</th>                <td>100000</td>                 <th>  AIC:               </th>  <td>2.735e+05</td> 
@@ -15376,13 +15463,13 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Estimativa-para-o-Brasil">Estimativa para o Brasil<a class="anchor-link" href="#Estimativa-para-o-Brasil">&#182;</a></h2><p>A estimação dos coeficientes para os estados não revelou padrões significativos que possibilitassem a correta inferência com base em características locais conhecidas pelos autores. Imagina-se que um conjunto de fatores são decisivos para as diferenças, levando em conta desigualdade, renda, custo de vida, entre outros indicadores sociais relevantes. Curiosamente, alguns estados como Rio de Janeiro, Ceará, Roraima, Alagoas e Santa Catarina apresentaram valores maiores no coeficiente beta. Contudo, a região Norte apresentou coeficientes menores, provavelmente devido ao fator de baixa renda e desigualdade.</p>
+<h2 id="Estimativa-para-o-Brasil">Estimativa para o Brasil<a class="anchor-link" href="#Estimativa-para-o-Brasil">&#182;</a></h2><p>Considerando que quanto maior for o valor de $\beta$, menor será a mobilidade intergeracional educacional, a estimação dos coeficientes para os estados não revelou padrões significativos que possibilitam a correta inferência com base em características locais conhecidas pelos autores. Imagina-se que um conjunto de fatores são decisivos para as diferenças, levando em conta desigualdade, renda, custo de vida, entre outros indicadores sociais relevantes. Curiosamente, o estado de Roraima apresenta alto valor no coeficiente beta, sugerindo que em condições muito escassas de oportunidade, favorece a baixa mobilidade. Contudo os demais estados da região Norte apresentaram coeficientes menores, sugerindo uma alta mobilidade na Região, ou seja, pouco interfere o quão educado são os pais no desempenho do aluno no exame do Enem.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># estimar vetor de betas dos estados</span>
@@ -15425,7 +15512,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prepara os dados</span>
@@ -15452,7 +15539,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Gera heat map</span>
@@ -15509,7 +15596,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># estimar vetor de betas dos estados</span>
@@ -15552,7 +15639,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prepara os dados</span>
@@ -15583,7 +15670,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Gera heat map</span>
@@ -15647,7 +15734,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_transf_mun</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data//transf_mun_2.xlsx&#39;</span><span class="p">)</span>
@@ -15665,7 +15752,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_transf_mun</span> <span class="o">=</span> <span class="n">df_transf_mun</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;COD_IBGE&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_mun_regressions</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;CD_MUN&#39;</span><span class="p">))</span>
@@ -15678,7 +15765,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#df_transf_mun.CD_MUN = df_transf_mun.COD_IBGE</span>
@@ -15700,7 +15787,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[38]:</div>
+    <div class="prompt output_prompt">Out[41]:</div>
 
 
 
@@ -15792,7 +15879,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## removendo estimações de beta não significantes:</span>
@@ -15836,7 +15923,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># variáveis utilizadas para regressão</span>
@@ -15866,7 +15953,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">type_exec</span> <span class="o">==</span> <span class="s1">&#39;Latex&#39;</span><span class="p">:</span>
@@ -15886,7 +15973,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[41]:</div>
+    <div class="prompt output_prompt">Out[44]:</div>
 
 
 
@@ -15906,7 +15993,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
   <th>Date:</th>             <td>Fri, 05 Feb 2021</td> <th>  Prob (F-statistic):</th>  <td>   nan</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>07:59:47</td>     <th>  Log-Likelihood:    </th> <td>     nan</td>
+  <th>Time:</th>                 <td>11:52:21</td>     <th>  Log-Likelihood:    </th> <td>     nan</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   771</td>      <th>  AIC:               </th> <td>     nan</td>
@@ -15956,7 +16043,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Estimações não utilizadas</span>
@@ -15979,7 +16066,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># df_mun_pib = df_mun_pib.set_index(&#39;Código do Município&#39;).join(df_mun_regressions.set_index(&#39;CD_MUN&#39;))</span>
@@ -15992,7 +16079,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># df_mun_pib_sig = df_mun_pib[df_mun_pib[&#39;pvalue&#39;]&lt; 0.05 ]</span>
@@ -16008,7 +16095,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># df_mun_idfm = pd.read_excel(&#39;Data//ipeadata_ifdm.xls&#39;)</span>
@@ -16026,7 +16113,7 @@ A título de conhecimento, quando se elimina a idade do modelo, o ranking de edu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sea.scatterplot(data=df_mun_idfm[df_mun_idfm[&#39;pvalue&#39;] &lt; 0.05].dropna(), x=&#39;BETA&#39;, y=&quot;2010&quot;)</span>
